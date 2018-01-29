@@ -4,8 +4,7 @@ chrome.commands.onCommand.addListener(function(command) {
     	lastFocusedWindow: true
 	}, function(tabs) {
 	    // and use that tab to fill in out title and url
-			console.log(tabs)
-	    var tab = tabs[tabs.length-1];
+	    var tab = getTab(tabs);
 	    var url = tab.url;
 	    var index = url.indexOf("/suite/");
 	    if (index != -1) {
@@ -37,3 +36,11 @@ chrome.commands.onCommand.addListener(function(command) {
 		}
 	});
 });
+
+function getTab(tabs){
+	if(tabs.length == 0) return false;
+	for(var i in tabs){
+		if(tabs[i].active) return tabs[i];
+	}
+	return tabs[tabs.length-1];
+}
