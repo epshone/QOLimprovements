@@ -1,10 +1,11 @@
 chrome.commands.onCommand.addListener(function(command) {
 	chrome.tabs.query({
-    	active: true,
+			url: "https://*/suite/*",
     	lastFocusedWindow: true
 	}, function(tabs) {
 	    // and use that tab to fill in out title and url
-	    var tab = tabs[0];
+			console.log(tabs)
+	    var tab = tabs[tabs.length-1];
 	    var url = tab.url;
 	    var index = url.indexOf("/suite/");
 	    if (index != -1) {
