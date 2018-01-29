@@ -1,0 +1,46 @@
+{
+  "name": "appianTabs",
+  "version": "0.1",
+  "browser_action":
+  {
+    "default_icon": "logo.png"
+  },
+  "background":
+  {
+    "scripts": ["background.js"]
+  },
+  "permissions": ["tabs"],
+  "commands": {
+    "open-db": {
+      "suggested_key":{
+        "default": "Alt+1"
+      },
+      "description": "Open DB"
+    },
+    "open-designer": {
+      "suggested_key":{
+        "default": "Alt+2"
+      },
+      "description": "Open Designer"
+    },
+    "open-design": {
+      "suggested_key":{
+        "default": "Alt+3"
+      },
+      "description": "Open Design"
+    },
+    "open-design-rule": {
+      "suggested_key":{
+        "default": "Alt+4"
+      },
+      "description": "Open Design Rule"
+    },
+    "open-tempo": {
+      "description": "Open Tempo"
+    },
+    "open-admin": {
+      "description": "Open Admin"
+    }
+  },
+  "manifest_version": 2
+}
