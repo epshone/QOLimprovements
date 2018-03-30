@@ -19,6 +19,10 @@
 		ADMIN: "/suite/admin"
 	};
 
+	chrome.storage.sync.get('default_env', function(result){
+		if(result.default_env) DEFAULT_ENVIRONMENT = result.default_env;
+	});
+
 	chrome.commands.onCommand.addListener(function(command) {
 		chrome.tabs.query({
 				url: URL_SKELETON, // Match tabs that contain the url skeleton
@@ -27,7 +31,7 @@
 			    // and use that tab to fill in out title and url
 			    var tab = getTab(tabs);
 			    var url = !tab ? DEFAULT_ENVIRONMENT : tab.url;
-					console.log(url)
+					console.log(DEFAULT_ENVIRONMENT)
 			    var index = url.indexOf(APPIAN_SUITE);
 			    if (index != -1) {
 			    	var sub = url.substr(0, index);
