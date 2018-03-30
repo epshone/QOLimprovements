@@ -8,7 +8,8 @@
 		OPEN_DESIGN: "open-design",
 		OPEN_RULE: "open-design-rule",
 		OPEN_TEMPO: "open-tempo",
-		OPEN_ADMIN: "open-admin"
+		OPEN_ADMIN: "open-admin",
+		OPEN_INTERFACE: "open-interface"
 	};
 	var urls = {
 		DATABASE: "/database",
@@ -16,7 +17,8 @@
 		DESIGN: "/suite/design",
 		RULE: "/suite/design/rule",
 		TEMPO: "/suite/tempo",
-		ADMIN: "/suite/admin"
+		ADMIN: "/suite/admin",
+		INTERFACE: "/suite/interface"
 	};
 
 	chrome.storage.sync.get('default_env', function(result){
@@ -54,6 +56,9 @@
 							break;
 						case commands.OPEN_ADMIN:
 							appendStr = urls.ADMIN;
+							break;
+						case commands.OPEN_INTERFACE:
+							appendStr = urls.INTERFACE;
 							break;
 					}
 		    	newUrl = sub.concat(appendStr);
