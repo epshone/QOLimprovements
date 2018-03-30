@@ -7,7 +7,7 @@ html, body {
   height: 200px;
 }
 
-h1 {
+#logo {
   text-align: center;
 }
 
@@ -38,4 +38,9 @@ h1 {
     border-color: grey;
     height: 24px;
     font-size: 14px;
+ }
+
+ #logo {
+   width: 32px;
+   height: 32px;
  }
