@@ -4,7 +4,7 @@
 	var URL_SKELETON = "https://*"+APPIAN_SUITE+"*";
 	var commands = {
 		OPEN_DB: "open-db",
-		OPEN_DESIGNER: "open-design",
+		OPEN_DESIGNER: "open-designer",
 		OPEN_DESIGN: "open-design",
 		OPEN_RULE: "open-design-rule",
 		OPEN_TEMPO: "open-tempo",
