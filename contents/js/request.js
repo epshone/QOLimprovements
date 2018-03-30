@@ -1,0 +1,17 @@
+class Request {
+  constructor(type, data){
+    this.type = type;
+    this.data = data;
+  }
+
+  serialize(){
+    return {
+      type: this.type,
+      data: this.data
+    }
+  }
+}
+
+Request.Type = {
+  SET_ENIVRONMENT: 0
+}

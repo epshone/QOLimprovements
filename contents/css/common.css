@@ -1,0 +1,41 @@
+html, body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  color: #666;
+  background: #fafafa;
+  width: 454px;
+  height: 200px;
+}
+
+h1 {
+  text-align: center;
+}
+
+.header {
+  text-align: center;
+  padding: 10px 0 10px 0;
+}
+
+.header hr {
+  height: 6px;
+  border: none;
+  margin-top: 20px;
+  background: -webkit-linear-gradient(0deg,
+    rgb(97, 255, 0) 0%,
+    rgb(255, 255, 255) 100%
+  );
+ }
+
+ .qol-form input {
+   -moz-border-radius:3px; /* Firefox */
+    -webkit-border-radius: 3px; /* Safari, Chrome */
+    -khtml-border-radius: 3px; /* KHTML */
+    border-radius: 3px; /* CSS3 */
+    width: 95%;
+    margin-left: 2px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: grey;
+    height: 24px;
+    font-size: 14px;
+ }

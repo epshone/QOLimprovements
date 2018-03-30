@@ -1,6 +1,19 @@
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="css/common.css">
+  <script src="lib/jquery/jquery.js"></script>
+  <script src="js/request.js"></script>
+  <script src="js/popup.js"></script>
+</head>
 <body>
-  <form>
-    Enter the default environment URL:
-    <input></input>
+  <div class="header">
+    <h1>Appian Tabs</h1>
+    Easily access each part of your environments with ease.
+    <hr>
+  </div>
+  <form id="setEnvironment" class="qol-form">
+    <div id="qol-form-tip">Enter the default environment URL (ex: https://example.com/suite/):</div>
+    <input id="environment" type="text"></input>
   </form>
+  <b><div id="status"></div></b>
 </body>
