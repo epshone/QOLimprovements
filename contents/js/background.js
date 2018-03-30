@@ -18,7 +18,7 @@
 		RULE: "/suite/design/rule",
 		TEMPO: "/suite/tempo",
 		ADMIN: "/suite/admin",
-		INTERFACE: "/suite/interface"
+		INTERFACE: "/suite/design/interface"
 	};
 
 	chrome.storage.sync.get('default_env', function(result){
