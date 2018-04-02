@@ -7,12 +7,6 @@ Blaze past the competition with newly exposed keyboard shortcuts which open new 
 Appian Tabs will automatically detect your current environment based on the tabs you have open. Your currently active tab will take precedence. If your current tabs URL does not contain "/suite/" it will look at the active window from right to left until the URL matches "/suite/".
 
 We hope you enjoy this incredible improvement to your quality of life.
-## CHANGELOG
-### VERSION 0.2.0c
-**Update Shortcuts**: Users may now update their keyboard shortcuts by clicking the Macedon logo in the extension bar, then clicking "Update Shortcuts"!
-### VERSION 0.2.0a
-**Default Environments**: If no tabs match "/suite/" it will use the default URL - set by clicking on the QOL Improvements extension icon in the extensions bar.
-
 # Instructions
 1. Download the contents directory
 2. Go to the URL chrome://extensions
@@ -22,3 +16,9 @@ We hope you enjoy this incredible improvement to your quality of life.
 6. Scroll to the bottom of the page
 7. Click the shortcuts link
 8. Add keyboard shortcuts for the different pages to open
+## CHANGELOG
+### VERSION 0.2.0c
+**Update Shortcuts**: Users may now update their keyboard shortcuts by clicking the Macedon logo in the extension bar, then clicking "Update Shortcuts"!
+### VERSION 0.2.0a
+**Default Environments**: If no tabs match "/suite/" it will use the default URL - set by clicking on the QOL Improvements extension icon in the extensions bar.
+
