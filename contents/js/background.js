@@ -33,7 +33,6 @@
 			    // and use that tab to fill in out title and url
 			    var tab = getTab(tabs);
 			    var url = !tab ? DEFAULT_ENVIRONMENT : tab.url;
-					console.log(DEFAULT_ENVIRONMENT)
 			    var index = url.indexOf(APPIAN_SUITE);
 			    if (index != -1) {
 			    	var sub = url.substr(0, index);
@@ -97,9 +96,7 @@
 		}
 
 		DEFAULT_ENVIRONMENT = url.substring(0, index+APPIAN_SUITE.length);
-		chrome.storage.sync.set({"default_env": DEFAULT_ENVIRONMENT}, function(){
-			console.log("set!")
-		});
+		chrome.storage.sync.set({"default_env": DEFAULT_ENVIRONMENT}, function(){});
 		return "<div style='color:green'>Current environment set to: "+DEFAULT_ENVIRONMENT+".</div>";
 	}
 })();

@@ -26,13 +26,16 @@ html, body {
   );
  }
 
+.qol-form {
+  margin-left: 2px;
+}
+
  .qol-form input {
    -moz-border-radius:3px; /* Firefox */
     -webkit-border-radius: 3px; /* Safari, Chrome */
     -khtml-border-radius: 3px; /* KHTML */
     border-radius: 3px; /* CSS3 */
     width: 95%;
-    margin-left: 2px;
     border-style: solid;
     border-width: 1px;
     border-color: grey;
@@ -40,7 +43,24 @@ html, body {
     font-size: 14px;
  }
 
+ .qol-button {
+   -moz-border-radius:2px; /* Firefox */
+   -webkit-border-radius: 2px; /* Safari, Chrome */
+   -khtml-border-radius: 2px; /* KHTML */
+   border-radius: 2px; /* CSS3 */
+   border-style: solid;
+   border-width: 1px;
+   border-color: grey;
+   margin-left: 2px;
+   transition: .5s;
+ }
+
+ .qol-button:hover {
+   background-color: #48d117;
+   transition: .5s;
+ }
+
  #logo {
-   width: 32px;
-   height: 32px;
+   width: 72px;
+   height: 72px;
  }
