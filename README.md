@@ -13,12 +13,13 @@ We hope you enjoy this incredible improvement to your quality of life.
 3. Check developer mode
 4. Load unpacked extension
 5. Select the contents directory and import
-6. Scroll to the bottom of the page
-7. Click the shortcuts link
-8. Add keyboard shortcuts for the different pages to open
+6. Open the Appian Tabs menu by clicking on the Macedon Logo in the extensions bar
+7. Click "Update Shortcuts" and update your hotkeys for each shortcut
 ## CHANGELOG
+### VERSION 0.2.0f
+**Lock Environment**: Override the Dynamic Environment Detection (TM) and always open new tabs in the default environment by selecting "Lock Environment" in the Appian Tabs menu. 
 ### VERSION 0.2.0c
-**Update Shortcuts**: Users may now update their keyboard shortcuts by clicking the Macedon logo in the extension bar, then clicking "Update Shortcuts"!
+**Update Shortcuts**: Users may now update their keyboard shortcuts in the Appian Tabs menu by clicking "Update Shortcuts"!
 ### VERSION 0.2.0a
-**Default Environments**: If no tabs match "/suite/" it will use the default URL - set by clicking on the QOL Improvements extension icon in the extensions bar.
+**Default Environments**: If no tabs match "/suite/" it will use the default URL, which may be set in the Appian Tabs menu.
 

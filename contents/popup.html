@@ -14,8 +14,13 @@
   </div>
   <form id="setEnvironment" class="qol-form">
     <div id="qol-form-tip">Enter the default environment URL (ex: https://example.com/suite/):</div>
-    <input id="environment" type="text"></input>
+    <input id="environment" type="text" class="qol-text"></input>
     <b><div id="status"></div></b>
+    <label class="container">
+      Lock Environment
+      <input type="checkbox" id="lock-env" class="qol-checkbox" value="locked"></input>
+      <span class="checkmark"></span>
+    </label>
   </form>
   <button id="shortcuts" class="qol-button">Update Shortcuts</button>
 </body>

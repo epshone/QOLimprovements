@@ -2,6 +2,7 @@
 	var DEFAULT_ENVIRONMENT = "";
 	var APPIAN_SUITE = "/suite/";
 	var URL_SKELETON = "https://*"+APPIAN_SUITE+"*";
+	var LOCK_ENVIRONMENT = false;
 	var commands = {
 		OPEN_DB: "open-db",
 		OPEN_DESIGNER: "open-designer",
@@ -32,7 +33,7 @@
 		}, function(tabs) {
 			    // and use that tab to fill in out title and url
 			    var tab = getTab(tabs);
-			    var url = !tab ? DEFAULT_ENVIRONMENT : tab.url;
+			    var url = !tab || LOCK_ENVIRONMENT ? DEFAULT_ENVIRONMENT : tab.url;
 			    var index = url.indexOf(APPIAN_SUITE);
 			    if (index != -1) {
 			    	var sub = url.substr(0, index);
@@ -68,10 +69,15 @@
 	});
 
 	chrome.runtime.onMessage.addListener(function(request, sender, sendResponse){
-		if(request.type === Request.SET_ENVIRONMENT){
+		if(request.type === Request.Type.SET_ENVIRONMENT){
 			console.log("set",request)
 			var response = setDefaultEnvironment(request.data);
 			sendResponse(response);
+		}
+		else if(request.type === Request.Type.SET_LOCK){
+			console.log("set",request);
+			LOCK_ENVIRONMENT = request.data.lock;
+			chrome.storage.sync.set({lock_env: LOCK_ENVIRONMENT});
 		}
 	});
 
