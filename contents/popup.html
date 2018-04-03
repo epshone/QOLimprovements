@@ -7,20 +7,45 @@
 </head>
 <body>
   <div class="header">
-    <img id="logo" src="assets/logo.png"></img>
-    <h1 id="title">Appian Tabs</h1>
-    Access each part of any of your environments with ease.
-    <hr>
+    <a class="title-link" href="http://macedontechnologies.com/" target="_blank"><img id="logo" src="assets/logo.png"></img></a>
+    <h1 id="title">QOL Improvements</h1>
+    <div class="qol-menu">
+      <button class="qol-menu-tab" id="appian-tabs-tab">Appian Tabs</button>
+      <button class="qol-menu-tab">Object Tracker</button>
+      <button class="qol-menu-tab">Submit Bug Report</button>
+    </div>
   </div>
-  <form id="setEnvironment" class="qol-form">
-    <div id="qol-form-tip">Enter the default environment URL (ex: https://example.com/suite/):</div>
-    <input id="environment" type="text" class="qol-text"></input>
-    <b><div id="status"></div></b>
-    <label class="container">
-      Lock Environment
-      <input type="checkbox" id="lock-env" class="qol-checkbox" value="locked"></input>
-      <span class="checkmark"></span>
-    </label>
-  </form>
+  <div class="qol-section" id="appian-tabs-section" name="Appian Tabs">
+    <form id="setEnvironment" class="qol-form">
+      <div id="qol-form-tip">Enter the default environment URL (ex: https://example.com/suite/):</div>
+      <input id="environment" type="text" class="qol-text"></input>
+      <label class="container">
+        Lock Environment
+        <input type="checkbox" id="lock-env" class="qol-checkbox" value="locked"></input>
+        <span class="checkmark"></span>
+      </label>
+      <b><div id="status"></div></b>
+    </form>
+  </div>
+  <div class="qol-section" id="contact" name="Submit Bug Report">
+    Got an issue? Submit a bug report below:
+    <form class="qol-form">
+      <label><b>Name:</b></label>
+      <br>
+      <input type="text" id="bug-subject"></input>
+      <br>
+      <label><b>Summary:</b></label>
+      <br>
+      <input type="text" id="bug-summary"></input>
+      <br>
+      <label><b>Description:</b></label>
+      <br>
+      <textarea rows="10" id="bug-description"></textarea>
+    </form>
+  </div>
+  <div class="qol-section" id="test" name="Object Tracker">
+    Coming soon...
+  </div>
+  <hr class="macedon-br">
   <button id="shortcuts" class="qol-button">Update Shortcuts</button>
 </body>
