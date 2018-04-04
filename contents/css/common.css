@@ -160,16 +160,16 @@ html, body {
  }
 
  #logo {
-   width: 72px;
-   height: 72px;
+   width: 75px;
+   height: 75px;
    transition: 1s;
  }
 
 #logo:hover {
   transition: 1s;
-  width: 160px;
-  height: 160px;
-  animation: jump 2.5s infinite;
+  width: 90px;
+  height: 90px;
+  animation: jump 3s infinite;
 }
 
 #title {
@@ -179,7 +179,6 @@ html, body {
 #title:hover {
   transition: 1s;
   color: #48d117 !important;
-  animation: shake .2s infinite;
 }
 
 @keyframes jump {
