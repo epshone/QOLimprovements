@@ -7,7 +7,8 @@
 		OPEN_DB: "open-db",
 		OPEN_DESIGNER: "open-designer",
 		OPEN_DESIGN: "open-design",
-		OPEN_RULE: "open-design-rule",
+		OPEN_OBJECTS: "open-objects",
+		OPEN_RULE: "open-rule",
 		OPEN_TEMPO: "open-tempo",
 		OPEN_ADMIN: "open-admin",
 		OPEN_INTERFACE: "open-interface"
@@ -16,6 +17,7 @@
 		DATABASE: "/database",
 		DESIGNER: "/suite/designer",
 		DESIGN: "/suite/design",
+		OBJECTS: "/suite/design/objects",
 		RULE: "/suite/design/rule",
 		TEMPO: "/suite/tempo",
 		ADMIN: "/suite/admin",
@@ -48,6 +50,9 @@
 						case commands.OPEN_DESIGN:
 							appendStr = urls.DESIGN;
 							break;
+						case commands.OPEN_OBJECTS:
+							appendStr = urls.OBJECTS;
+							break;
 						case commands.OPEN_RULE:
 							appendStr = urls.RULE;
 							break;
@@ -62,6 +67,7 @@
 							break;
 					}
 		    	newUrl = sub.concat(appendStr);
+		    	console.log('command:', command);
 		    	console.log('open URL:', newUrl);
 		    	chrome.tabs.create({url: newUrl})
 			}

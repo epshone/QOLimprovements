@@ -33,7 +33,10 @@
       },
       "description": "Open Design"
     },
-    "open-design-rule": {
+    "open-objects": {
+      "description": "Open Design Objects"
+    },
+    "open-rule": {
       "suggested_key":{
         "default": "Alt+4"
       },

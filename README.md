@@ -16,6 +16,8 @@ We hope you enjoy this incredible improvement to your quality of life.
 6. Open the Appian Tabs menu by clicking on the Macedon Logo in the extensions bar
 7. Click "Update Shortcuts" and update your hotkeys for each shortcut
 ## CHANGELOG
+### VERSION 0.2.0j
+**Added Shortcut**: Added shortcut for design/objects. Suggested key binding: alt + shift + 3
 ### VERSION 0.2.0f
 **Lock Environment**: Override the Dynamic Environment Detection (TM) and always open new tabs in the default environment by selecting "Lock Environment" in the Appian Tabs menu. 
 ### VERSION 0.2.0c
