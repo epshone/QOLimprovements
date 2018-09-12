@@ -8,11 +8,20 @@
   },
   "background":
   {
-    "scripts": ["js/request.js", "js/background.js"]
+    "scripts": ["js/request.js", "js/background.js", "js/key_event.js"]
   },
   "permissions": [
     "tabs",
-    "storage"
+    "storage",
+    "activeTab"
+  ],
+  "content_scripts": [
+    {
+      "all_frames": true,
+      "matches": ["http://*/*", "https://*/*"], // run for http & https pages
+      "js": ["js/key_event.js"]// ,  // key_event.js is injected to the page, this handles key press
+      // "run_at": "document_start" // run before everything else, else there will be conflicts at pages which accept keyboard inputs ( eg:google search)
+    }
   ],
   "commands": {
     "open-db": {

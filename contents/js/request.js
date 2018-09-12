@@ -14,5 +14,6 @@ class Request {
 
 Request.Type = {
   SET_ENVIRONMENT: 0,
-  SET_LOCK: 1
+  SET_LOCK: 1,
+  KEY_PRESS: 2
 }
