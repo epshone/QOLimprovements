@@ -1,6 +1,6 @@
 # QOLimprovements
 ## Appian Tabs
-Appian Tabs Alpha version 0.2.0c (PRE-ALPHA BUILD: 2315-SNAPSHOT) is a state of the art QOL improvement which takes an action that used to take seconds and makes it take less seconds. 
+Appian Tabs Alpha version 0.3.0a (PRE-ALPHA BUILD: 2319-SNAPSHOT2) is a state of the art QOL improvement which takes an action that used to take seconds and makes it take less seconds. 
 
 Blaze past the competition with newly exposed keyboard shortcuts which open new tabs for common Appian URLS (/design, /designer, /design/rule, /tempo, /admin, /database).
 
@@ -14,8 +14,10 @@ We hope you enjoy this incredible improvement to your quality of life.
 4. Load unpacked extension
 5. Select the contents directory and import
 6. Open the Appian Tabs menu by clicking on the Macedon Logo in the extensions bar
-7. Click "Update Shortcuts" and update your hotkeys for each shortcut
+7. Set a default environment by pasting into the text box and clicking enter
 ## CHANGELOG
+### VERSION 0.3.0a
+**Key Events**: No longer uses chrome commands - instead we user key events
 ### VERSION 0.2.0j
 **Added Shortcut**: Added shortcut for design/objects. Suggested key binding: alt + shift + 3
 ### VERSION 0.2.0f
