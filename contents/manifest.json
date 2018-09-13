@@ -23,43 +23,5 @@
       // "run_at": "document_start" // run before everything else, else there will be conflicts at pages which accept keyboard inputs ( eg:google search)
     }
   ],
-  "commands": {
-    "open-db": {
-      "suggested_key":{
-        "default": "Alt+1"
-      },
-      "description": "Open DB"
-    },
-    "open-designer": {
-      "suggested_key":{
-        "default": "Alt+2"
-      },
-      "description": "Open Designer"
-    },
-    "open-design": {
-      "suggested_key":{
-        "default": "Alt+3"
-      },
-      "description": "Open Design"
-    },
-    "open-objects": {
-      "description": "Open Design Objects"
-    },
-    "open-rule": {
-      "suggested_key":{
-        "default": "Alt+4"
-      },
-      "description": "Open Design Rule"
-    },
-    "open-tempo": {
-      "description": "Open Tempo"
-    },
-    "open-admin": {
-      "description": "Open Admin"
-    },
-    "open-interface": {
-      "description": "Open Interface"
-    }
-  },
   "manifest_version": 2
 }
