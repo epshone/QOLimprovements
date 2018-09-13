@@ -4,37 +4,44 @@ if (window == top) {
    window.addEventListener('keydown', doKeyPress, false); //add the keyboard handler
 }
 
-var altCommands = {
-  "Digit1": "open-db",
-  "Digit2": "open-designer",
-  "Digit3": "open-design",
-  "Digit4": "open-rule",
-  "Digit5": "open-tempo",
-  "Digit6": "open-admin",
-};
-
-var altShiftCommands = {
-  "Digit3": "open-objects",
-  "Digit4": "open-interface"    
-};
+// do from storage sync eventually
+var KeyBindingCommands = {
+  "Alt+Digit1": 1,
+  "Alt+Digit2": "open-designer",
+  "Alt+Digit3": "open-design",
+  "Alt+Digit4": "open-rule",
+  "Alt+Digit5": "open-tempo",
+  "Alt+Digit6": "open-admin",
+  "Alt+Shift+Digit3": "open-objects",
+  "Alt+Shift+Digit4": "open-interface"
+}
 
 function doKeyPress(e){
-  console.log("keypress:", e);
-  // e.shiftKey, e.ctrlKey, e.altKey,
-  command = "";
   console.log("e.code:", e.code);
-  if(e.shiftKey && e.altKey && e.ctrl) {}
-  else if(e.shiftKey && e.altKey) {
-    command = altShiftCommands[e.code];
-  } else if(e.altKey) {
-    command = altCommands[e.code];
-  };
   console.log("command:", command);
+  var keyBinding = currentKeyBinding(e);
+  var command = KeyBindingCommands[keyBinding];
   if (command) {
-    console.log("request:", "sending");
-    chrome.extension.sendRequest({command: command});
+    var request = new Request(Request.Type.OPEN_TAB_EVENT, {command: command});
+    console.log("request:", request.serialize());
+    chrome.runtime.sendMessage(request.serialize());
+    // chrome.extension.sendRequest({command: command});
   }
-};  
+};
+
+function currentKeyBinding(e){
+  var str = "";
+  if(e.ctrlKey){
+    str += "Ctrl+"
+  }
+  if(e.altKey){
+    str += "Alt+"
+  }
+  if(e.shiftKey){
+    str += "Shift+"
+  }
+  return str + e.code
+}; 
 
 
 

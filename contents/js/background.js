@@ -3,25 +3,16 @@
   var APPIAN_SUITE = "/suite/";
   var URL_SKELETON = "https://*"+APPIAN_SUITE+"*";
   var LOCK_ENVIRONMENT = false;
-  var commands = {
-    OPEN_DB: "open-db",
-    OPEN_DESIGNER: "open-designer",
-    OPEN_DESIGN: "open-design",
-    OPEN_OBJECTS: "open-objects",
-    OPEN_RULE: "open-rule",
-    OPEN_TEMPO: "open-tempo",
-    OPEN_ADMIN: "open-admin",
-    OPEN_INTERFACE: "open-interface"
-  };
-  var urls = {
-    DATABASE: "/database",
-    DESIGNER: "/suite/designer",
-    DESIGN: "/suite/design",
-    OBJECTS: "/suite/design/objects",
-    RULE: "/suite/design/rule",
-    TEMPO: "/suite/tempo",
-    ADMIN: "/suite/admin",
-    INTERFACE: "/suite/design/interface"
+  
+  var commandBindings = {
+    "open-db": "/database",
+    "open-designer": "/suite/designer",
+    "open-design": "/suite/design",
+    "open-objects": "/suite/design/objects",
+    "open-rule": "/suite/design/rule",
+    "open-tempo": "/suite/tempo",
+    "open-admin": "/suite/admin",
+    "open-interface": "/suite/design/interface"
   };
 
   chrome.storage.sync.get('default_env', function(result){
@@ -29,66 +20,46 @@
   });
 
   chrome.runtime.onMessage.addListener(function(request, sender, sendResponse){
-    if(request.type === Request.Type.SET_ENVIRONMENT){
-      console.log("set",request)
-      var response = setDefaultEnvironment(request.data);
-      sendResponse(response);
-    }
-    else if(request.type === Request.Type.SET_LOCK){
-      console.log("set",request);
-      LOCK_ENVIRONMENT = request.data.lock;
-      chrome.storage.sync.set({lock_env: LOCK_ENVIRONMENT});
+    console.log("debug:", "WORKING");
+    switch(request.type) {
+      case Request.Type.SET_ENVIRONMENT: 
+        console.log("set:",request)  
+        var response = setDefaultEnvironment(request.data);
+        sendResponse(response);
+        break;
+      case Request.Type.SET_LOCK: 
+        console.log("set:",request);
+        LOCK_ENVIRONMENT = request.data.lock;
+        chrome.storage.sync.set({lock_env: LOCK_ENVIRONMENT});
+        break;
+      case Request.Type.OPEN_TAB_EVENT:
+        console.log("open:",request);
+        openTab(request.data["command"]);
+        break;
     }
   });
 
-  chrome.extension.onRequest.addListener(function(request, sender) {
-    console.log("REQUEST:", request)
+  function openTab(command) {
     chrome.tabs.query({
       url: URL_SKELETON, // Match tabs that contain the url skeleton
       lastFocusedWindow: true // Only use the last chrome window that had focus
     }, function(tabs) {
-    	console.log("debug:", "Wtf");
       // and use that tab to fill in out title and url
       var tab = getTab(tabs);
-      console.log("debug:", tab);
       var url = !tab || LOCK_ENVIRONMENT ? DEFAULT_ENVIRONMENT : tab.url;
       var index = url.indexOf(APPIAN_SUITE);
       if (index != -1) {
         var sub = url.substr(0, index);
-        appendStr = "";
-      	switch(request.command) {
-      	  case commands.OPEN_DB:
-      	    appendStr = urls.DATABASE;
-      	    break;
-      	  case commands.OPEN_DESIGNER:
-      	    appendStr = urls.DESIGNER;
-      	    break;
-      	  case commands.OPEN_DESIGN:
-      	    appendStr = urls.DESIGN;
-      	    break;
-      	  case commands.OPEN_OBJECTS:
-      	    appendStr = urls.OBJECTS;
-      	    break;
-      	  case commands.OPEN_RULE:
-      	    appendStr = urls.RULE;
-      	    break;
-      	  case commands.OPEN_TEMPO:
-      	    appendStr = urls.TEMPO;
-      	    break;
-      	  case commands.OPEN_ADMIN:
-      	    appendStr = urls.ADMIN;
-      	    break;
-      	  case commands.OPEN_INTERFACE:
-      	    appendStr = urls.INTERFACE;
-      	    break;
-      	}
-      	newUrl = sub.concat(appendStr);
-      	console.log('command:', request.command);
-      	console.log('open URL:', newUrl);
-      	chrome.tabs.create({url: newUrl})
+        appendStr = commandBindings[command];
+        if(appendStr){
+          newUrl = sub.concat(appendStr);
+          console.log('command:', command);
+          console.log('open URL:', newUrl);
+          chrome.tabs.create({url: newUrl});
+        }
       }
     });
-  });
+  }
 
   function getTab(tabs){
     if(tabs.length == 0) return false;
@@ -103,7 +74,7 @@
     var https = "https://";
     var httpsIndex = url.indexOf(https);
     if(httpsIndex == -1){
-      return "<div style='color:red'>Invalid envrionment URL. Envrionment URLs must use 'https'.</div>"
+      return "<div style='color:red'>Invalid envrionment URL. Envrionment URLs must use 'https'.</div>";
     }
     var index = url.indexOf(APPIAN_SUITE);
     if(index == -1){

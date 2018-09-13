@@ -1,5 +1,4 @@
 $(document).ready(function(){
-
   ;(function(){
     $("#setEnvironment").submit(setDefaultEnvironment);
     $('#shortcuts').click(function(e){
