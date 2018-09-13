@@ -28,52 +28,6 @@
     if(result.default_env) DEFAULT_ENVIRONMENT = result.default_env;
   });
 
-  chrome.commands.onCommand.addListener(function(command) {
-    chrome.tabs.query({
-        url: URL_SKELETON, // Match tabs that contain the url skeleton
-        lastFocusedWindow: true // Only use the last chrome window that had focus
-    }, function(tabs) {
-          // and use that tab to fill in out title and url
-          var tab = getTab(tabs);
-          var url = !tab || LOCK_ENVIRONMENT ? DEFAULT_ENVIRONMENT : tab.url;
-          var index = url.indexOf(APPIAN_SUITE);
-          if (index != -1) {
-            var sub = url.substr(0, index);
-            appendStr = "";
-          switch(command) {
-            case commands.OPEN_DB:
-              appendStr = urls.DATABASE;
-              break;
-            case commands.OPEN_DESIGNER:
-              appendStr = urls.DESIGNER;
-              break;
-            case commands.OPEN_DESIGN:
-              appendStr = urls.DESIGN;
-              break;
-            case commands.OPEN_OBJECTS:
-              appendStr = urls.OBJECTS;
-              break;
-            case commands.OPEN_RULE:
-              appendStr = urls.RULE;
-              break;
-            case commands.OPEN_TEMPO:
-              appendStr = urls.TEMPO;
-              break;
-            case commands.OPEN_ADMIN:
-              appendStr = urls.ADMIN;
-              break;
-            case commands.OPEN_INTERFACE:
-              appendStr = urls.INTERFACE;
-              break;
-          }
-          newUrl = sub.concat(appendStr);
-          console.log('command:', command);
-          console.log('open URL:', newUrl);
-          chrome.tabs.create({url: newUrl})
-      }
-    });
-  });
-
   chrome.runtime.onMessage.addListener(function(request, sender, sendResponse){
     if(request.type === Request.Type.SET_ENVIRONMENT){
       console.log("set",request)
