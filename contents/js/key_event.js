@@ -17,8 +17,6 @@ var KeyBindingCommands = {
 }
 
 function doKeyPress(e){
-  console.log("e.code:", e.code);
-  console.log("command:", command);
   var keyBinding = currentKeyBinding(e);
   var command = KeyBindingCommands[keyBinding];
   if (command) {
